@@ -1,6 +1,10 @@
 <%= form_for @changeset, topic_path(@conn, :create), fn f-> %>
     <div class="form-group">
         <%= text_input f, :title, placeholder: "Title", class: "form-control" %>
+
+        <!-- Shows an error message when the information can't be saved to the database -->
+        <!-- error_tag is the name that I gave to the tag; f is passed from the anonymous function above; :title is the error message thrown by the ecto through the changeset -->
+        <%= error_tag f, :title%>
     </div>
 
     <%= submit "Save Topic", class: "btn btn-primary"%>
