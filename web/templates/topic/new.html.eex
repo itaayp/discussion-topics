@@ -1,3 +1,4 @@
+<!-- `:create` is the action took by the form when the submit button is pressed. the `:create` function is defined on the controller -->
 <%= form_for @changeset, topic_path(@conn, :create), fn f-> %>
     <div class="form-group">
         <%= text_input f, :title, placeholder: "Title", class: "form-control" %>

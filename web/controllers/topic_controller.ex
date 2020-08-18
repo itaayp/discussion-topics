@@ -6,6 +6,13 @@ defmodule Discuss.TopicController do
     alias Discuss.Topic
     
     @doc """
+    This function displays all the topics records from the database
+    """
+    def index(conn, _params) do
+        
+    end
+
+    @doc """
     This function renderizes the New Topic screen.
     The changeset is needed to be passed by parameter when calling the `render` function
     """
