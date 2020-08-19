@@ -1,0 +1,6 @@
+<!-- `topic_path()` defines the action that will be taken when the user submit the form: the code will call the function `update` -->
+<!-- And this `update` function request a paramether id, wich is passed by the `@topic` right after the `:update` -->
+<!-- The `@topic` is passed to this page by the function `Discussion.TopicController.edit` when the screen is renderized -->
+<% form_for @changeset, topic_path(@conn, :update, @topic), fn f -> %>
+
+<% end %>

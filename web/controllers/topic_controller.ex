@@ -38,4 +38,15 @@ defmodule Discuss.TopicController do
                 render conn, "new.html", changeset: changeset
         end
     end
+
+    @doc """
+    This function is responsible to redirects the user to the Edit Topic screen.
+    The argument `%{"id" => topic_id}` is the id of the topic selected by the user to edit. This argument is part of the `params` argument
+    """
+    def edit(conn, %{"id" => topic_id}) do
+        topic = Repo.get(Topic, topic_id)
+        changeset = Topic.changeset(topic)
+
+        render conn, "edit.html", changeset: changeset, topic: topic     
+    end
 end
