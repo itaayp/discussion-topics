@@ -30,7 +30,7 @@ defmodule Discuss.TopicController do
         changeset = Topic.changeset(%Topic{}, topic)
 
         case Repo.insert(changeset) do
-            {:ok, post} -> 
+            {:ok, _topic} -> 
                 conn
                 |> put_flash(:info, "Topic Created")
                 |> redirect(to: topic_path(conn, :index))
@@ -40,7 +40,7 @@ defmodule Discuss.TopicController do
     end
 
     @doc """
-    This function is responsible to redirects the user to the Edit Topic screen.
+    This function is responsible to redirect the user to the Edit Topic screen.
     The argument `%{"id" => topic_id}` is the id of the topic selected by the user to edit. This argument is part of the `params` argument
     """
     def edit(conn, %{"id" => topic_id}) do
@@ -49,4 +49,6 @@ defmodule Discuss.TopicController do
 
         render conn, "edit.html", changeset: changeset, topic: topic     
     end
+
+
 end
