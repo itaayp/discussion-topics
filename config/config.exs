@@ -32,7 +32,7 @@ config :ueberauth, Ueberauth,
         google: {Ueberauth.Strategy.Google, []}
     ]
 
-config :ueberauth, Ueberauth.Strategy.Github.Oauth,
+config :ueberauth, Ueberauth.Strategy.Github.OAuth,
     client_id: System.get_env("github_discuss_client_id"),
     client_secret: System.get_env("github_discuss_client_secret")
 
