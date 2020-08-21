@@ -1,6 +1,6 @@
 defmodule Discuss.TopicController do
     @moduledoc """
-    This is the Topic Controller and will orchestrate the actions related to the Topic
+    This is the Topic Controller and will handle the actions related to the Topic
     """
     use Discuss.Web, :controller
     alias Discuss.Topic
