@@ -8,9 +8,9 @@ defmodule Discuss.User do
         This is the mapping function that match the database columns with Elixir's code
     """
     schema "users" do
-        field :email, string
-        field :provider, string
-        field :token, string
+        field :email, :string
+        field :provider, :string
+        field :token, :string
 
         timestamps()
     end
