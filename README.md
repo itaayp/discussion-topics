@@ -11,6 +11,9 @@
 ## Discuss project
 The goal of this project is to create a platform where users can create discussion topics and where other users can debate about the theme.
 
+## Documentation
+I'm using Exdoc to generate the documentation. Feel free to read it at **/discuss/doc/index.html**
+
 ## Running the application
 For now, the app isn't available on the web, so if you want to run the application, follow the mentioned steps: 
 
