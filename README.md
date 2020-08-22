@@ -23,7 +23,7 @@ Now, you can open you browser, access the application at **http://localhost:4000
 If you want to preview the OAuth authentication, access the URL: **http://localhost:4000/auth/github**.
 
 ## Elixir concepts and frameworks applied to this project
-  1- Exdoc Framework - to generate the documentation
-  2- Phoenix Framework
-  3- OAuth Authenticator Framework
-  4- Integration with Postgresql database
+  1. Exdoc Framework - to generate the documentation
+  2. Phoenix Framework
+  3. OAuth Authenticator Framework
+  4. Integration with Postgresql database
