@@ -13,7 +13,9 @@ defmodule Discuss.AuthController do
         The goal of the function is to sign in the user to the system
     """
     def callback(%{assigns: %{ueberauth_auth: auth}} = conn, params) do
-        user_params = %{token: auth.credentials.token, email: auth.info.email, provider: auth.provider}
+        user_params = %{token: auth.credentials.token, email: auth.info.email, provider: "github"} 
+        #TODO: Right now I'm not accepting to login with a different provider from github (`provider: "github"`). I have tried to run the change pasted below, but it didn't work
+        # user_params = %{token: auth.credentials.token, email: auth.info.email, provider: auth.provider}
         changeset = User.changeset(%User{}, user_params)
 
         signin(conn, changeset)
@@ -40,7 +42,7 @@ defmodule Discuss.AuthController do
         This is a private function. The goal of the function is to insert the new user on the database, or update their info, if the user already exists on the DB.
     """
     defp insert_or_update_user(changeset) do
-        case Repo.get_by(User, email: changeset.change.email) do
+        case Repo.get_by(User, email: changeset.changes.email) do
             nil ->
                 Repo.insert(changeset)
             user ->
