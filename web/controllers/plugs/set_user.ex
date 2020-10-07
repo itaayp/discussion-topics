@@ -19,7 +19,7 @@ defmodule Discuss.Plugs.SetUser do
   @doc """
   mandatory function for module plugs
 
-  This function gets the `conn` object, see if there is a `user_id`. And if there is, it will find the user in the database and assign it to the `conn`
+  This function gets the `conn` object and checks if there is a value assigned to the `user_id` property. If there is, it will find the user in the database and assign it to the conn's `user` property
 
   `_params` argument is the return value of the `init` function.
   """
