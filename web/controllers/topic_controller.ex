@@ -3,14 +3,17 @@ defmodule Discuss.TopicController do
     This is the Topic Controller and will handle the actions related to the Topic
     """
     use Discuss.Web, :controller
+
     alias Discuss.Topic
-    
+
+    plug Discuss.Plugs.RequireAuth when action in [:new, :create, :edit, :update, :delete]
+
     @doc """
     This function displays all the topics records from the database
     """
     def index(conn, _params) do
         topics = Repo.all(Topic)
-        render conn, "index.html", topics: topics        
+        render conn, "index.html", topics: topics
     end
 
     @doc """
@@ -24,17 +27,17 @@ defmodule Discuss.TopicController do
     end
 
     @doc """
-    This function adds a new row in the `topics` table on the database 
+    This function adds a new row in the `topics` table on the database
     """
     def create(conn, %{"topic" => topic}) do
         changeset = Topic.changeset(%Topic{}, topic)
 
         case Repo.insert(changeset) do
-            {:ok, _topic} -> 
+            {:ok, _topic} ->
                 conn
                 |> put_flash(:info, "Topic Created")
                 |> redirect(to: topic_path(conn, :index))
-            {:error, changeset} -> 
+            {:error, changeset} ->
                 render conn, "new.html", changeset: changeset
         end
     end
@@ -47,7 +50,7 @@ defmodule Discuss.TopicController do
         topic = Repo.get(Topic, topic_id)
         changeset = Topic.changeset(topic)
 
-        render conn, "edit.html", changeset: changeset, topic: topic     
+        render conn, "edit.html", changeset: changeset, topic: topic
     end
 
     @doc """
