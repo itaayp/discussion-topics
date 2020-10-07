@@ -1,6 +1,6 @@
 defmodule Discuss.Plugs.SetUser do
 @moduledoc """
-SetUser plug.
+  This plug is responsible to set the user to the conn object.
 """
   import Plug.Conn
   import Phoenix.Controller
