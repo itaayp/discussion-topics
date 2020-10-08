@@ -18,7 +18,7 @@ defmodule Discuss.TopicController do
     end
 
     @doc """
-    ##TODO This function shows ...
+      This function shows the details of an especific topic
     """
     def show(conn, %{"id" => topic_id}) do
       topic = Repo.get!(Topic, topic_id)

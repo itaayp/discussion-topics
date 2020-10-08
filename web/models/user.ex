@@ -4,6 +4,8 @@ defmodule Discuss.User do
 """
     use Discuss.Web, :model
 
+    @derive {Poison.Encoder, only: [:email]}
+
     @doc """
         This is the mapping function that match the database columns with Elixir's code
     """
