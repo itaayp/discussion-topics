@@ -18,6 +18,14 @@ defmodule Discuss.TopicController do
     end
 
     @doc """
+    ##TODO This function shows ...
+    """
+    def show(conn, %{"id" => topic_id}) do
+      topic = Repo.get!(Topic, topic_id)
+      render conn, "show.html", topic: topic
+    end
+
+    @doc """
     This function renderizes the New Topic screen.
     The changeset is needed to be passed by parameter when calling the `render` function and it means: "make availble this values, so I can use it on my page"
     """
